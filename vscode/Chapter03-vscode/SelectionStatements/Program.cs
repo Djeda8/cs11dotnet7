@@ -79,6 +79,7 @@ foreach (Animal? animal in animals)
             message = "The animal is null.";
             break;
     }
+    
     WriteLine($"switch statement: {message}");
 }
 
