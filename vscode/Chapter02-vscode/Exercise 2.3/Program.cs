@@ -1,0 +1,14 @@
+﻿WriteLine("----------------------------------------------------------------------------------");
+WriteLine(format: "{0,-10} {1,-1} {2,16} {3,36}", "Type", "Byte(s) of memory", "Min", "Max");
+WriteLine("----------------------------------------------------------------------------------");
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "sbyte", sizeof(sbyte), sbyte.MinValue, sbyte.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "byte", sizeof(byte), byte.MinValue, byte.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "short", sizeof(short), short.MinValue, short.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "ushort", sizeof(ushort), ushort.MinValue, ushort.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "int", sizeof(int), int.MinValue, int.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "uint", sizeof(uint), uint.MinValue, uint.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "long", sizeof(long), long.MinValue, long.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "ulong", sizeof(ulong), ulong.MinValue, ulong.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "float", sizeof(float), float.MinValue, float.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "double", sizeof(double), double.MinValue, double.MaxValue);
+WriteLine(format: "{0,-10} {1,-1} {2,32} {3,36}", "decimal", sizeof(decimal), decimal.MinValue, decimal.MaxValue);
