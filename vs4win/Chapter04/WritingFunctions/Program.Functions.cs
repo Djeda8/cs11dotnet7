@@ -1,5 +1,11 @@
 ﻿partial class Program
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
     static int Factorial(int number)
     {
         Write(number);
