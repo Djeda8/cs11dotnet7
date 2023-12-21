@@ -1,0 +1,46 @@
+{
+	"folders": [
+		{
+			"path": "Operators"
+		},
+		{
+			"path": "BooleanOperators"
+		},
+		{
+			"path": "BitwiseAndShiftOperators"
+		},
+		{
+			"path": "SelectionStatements"
+		},
+		{
+			"path": "IterationStatements"
+		},
+		{
+			"path": "Arrays"
+		},
+		{
+			"path": "CastingConverting"
+		},
+		{
+			"path": "HandlingExceptions"
+		},
+		{
+			"path": "CheckingForOverflow"
+		},
+		{
+			"path": "Ch03Ex01TestYourKnowledge"
+		},
+		{
+			"path": "Ch03Ex02Explore loops and overflow"
+		},
+		{
+			"path": "Ch03Ex03FizzBuzz"
+		},
+		{
+			"path": "Ch03Ex04Exceptions"
+		},
+		{
+			"path": "Ch03Ex05Operators"
+		}
+	]
+}
