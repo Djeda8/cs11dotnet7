@@ -17,8 +17,8 @@ WriteLine($"a & DoStuff() = {a & DoStuff()}");
 WriteLine($"b & DoStuff() = {b & DoStuff()}");
 
 WriteLine();
-WriteLine($"a & DoStuff() = {a && DoStuff()}"); 
-WriteLine($"b & DoStuff() = {b && DoStuff()}");
+WriteLine($"a && DoStuff() = {a && DoStuff()}"); 
+WriteLine($"b && DoStuff() = {b && DoStuff()}");
 
 static bool DoStuff()
 {
