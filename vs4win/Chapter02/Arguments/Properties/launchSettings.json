@@ -2,7 +2,7 @@
   "profiles": {
     "Arguments": {
       "commandName": "Project",
-      "commandLineArgs": "red yellow 25"
+      "commandLineArgs": "red yellow 50"
     }
   }
 }

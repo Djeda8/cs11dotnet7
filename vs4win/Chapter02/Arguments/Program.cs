@@ -1,5 +1,10 @@
 ﻿WriteLine($"There are {args.Length} arguments.");
 
+foreach (string arg in args)
+{
+    WriteLine(arg);
+}
+
 ForegroundColor = (ConsoleColor)Enum.Parse(
 enumType: typeof(ConsoleColor),
 value: args[0],

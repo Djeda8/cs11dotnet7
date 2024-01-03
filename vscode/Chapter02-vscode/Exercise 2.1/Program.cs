@@ -36,7 +36,7 @@ Console.WriteLine($"Double uses {sizeof(double)} bytes ");
 XmlDocument xml = new();
 
 // 8. Why should you be careful when using the dynamic type?
-
+// Because the type of object stored in it is not checked until runtime.
 
 // 9. How do you right-align a format string?
 
