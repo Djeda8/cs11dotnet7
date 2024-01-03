@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-
+// #error version
 System.Data.DataSet ds;
 HttpClient client;
 
@@ -8,15 +8,17 @@ if (myApp == null) return; // quit the app
 // loop through the assemblies that my app references
 foreach (AssemblyName name in myApp.GetReferencedAssemblies())
 {
-  // load the assembly so we can read its details
-  Assembly a = Assembly.Load(name);
+    Console.WriteLine(name.Name);
+    // load the assembly so we can read its details
+    Assembly a = Assembly.Load(name);
   // declare a variable to count the number of methods
   int methodCount = 0;
   // loop through all the types in the assembly
   foreach (TypeInfo t in a.DefinedTypes)
   {
-    // add up the counts of methods
-    methodCount += t.GetMethods().Count();
+        Console.WriteLine(t.Name);
+        // add up the counts of methods
+        methodCount += t.GetMethods().Count();
   }
   // output the count of types and their methods
   Console.WriteLine(

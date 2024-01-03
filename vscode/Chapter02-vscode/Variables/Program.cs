@@ -17,6 +17,17 @@ string fullNameWithTabSeparator = "Bob\tSmith";
 Console.WriteLine(fullNameWithTabSeparator);
 string filePath = @"C:\televisions\sony\bravia.txt";
 
+string xml = """"
+             """
+             <person age="50">
+               <first_name>Mark</first_name>
+             </person>
+             """
+             """";
+
+Console.WriteLine(xml);
+
+
 
 object height = 1.88; // storing a double in an object
 object name = "Amir"; // storing a string in an object
@@ -83,6 +94,9 @@ int number = 13;
 Console.WriteLine($"number has been set to: {number}");
 number = default;
 Console.WriteLine($"number has been reset to its default: {number}");
+
+int a = new int();
+Console.WriteLine("Valor de a: {0}", a);
 
 // In a separate Person.cs file or at the bottom of Program.cs
 public class Person
