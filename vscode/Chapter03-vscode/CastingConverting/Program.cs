@@ -78,7 +78,7 @@ WriteLine($"I was born {age} years ago.");
 WriteLine($"My birthday is {birthday}."); 
 WriteLine($"My birthday is {birthday:D}.");
 
-int count1 = int.Parse("abc");
+// int count1 = int.Parse("abc");
 
 Write("How many eggs are there? "); 
 string? input = ReadLine(); // or use "12" in notebook

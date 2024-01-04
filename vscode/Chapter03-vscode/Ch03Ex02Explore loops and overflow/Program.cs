@@ -1,6 +1,6 @@
 ﻿int max = 500;
 WriteLine($"{byte.MaxValue}");
-checked
+// checked
 {
     for (byte i = 0; i < max; i++)
     {

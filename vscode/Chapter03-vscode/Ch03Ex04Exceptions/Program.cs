@@ -16,7 +16,7 @@ try
     WriteLine($"{aa} divided by {b} is {aa / bb}");
 
 }
-catch (FormatException ex)
+catch (Exception ex)
 {
-    WriteLine($"{ex.GetType().Name}: {ex.Message}");
+  WriteLine($"{ex.GetType().Name}: {ex.Message}");
 }
