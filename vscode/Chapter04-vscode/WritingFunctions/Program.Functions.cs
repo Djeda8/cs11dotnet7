@@ -25,7 +25,7 @@ partial class Program
             _ => 0.06M // most US states
         };
 
-        switch (twoLetterRegionCode)
+        switch (twoLetterRegionCode.ToUpper())
         {
             case "CH": // Switzerland
                 rate = 0.08M;
@@ -89,9 +89,12 @@ partial class Program
         }
     }
 
+/// <summary>
+/// 
+/// </summary>
     static void RunCardinalToOrdinal()
     {
-        for (int number = -2; number <= 150; number++)
+        for (int number = 1; number <= 150; number++)
         {
             Write($"{CardinalToOrdinal(number)} ");
         }

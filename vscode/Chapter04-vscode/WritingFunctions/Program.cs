@@ -5,12 +5,13 @@
 // decimal taxToPay = CalculateTax(amount: 149, twoLetterRegionCode: "UK"); 
 // WriteLine($"You must pay {taxToPay:C} in tax.");
 
-// RunCardinalToOrdinal();
+RunCardinalToOrdinal();
 
-// RunFactorial();
+RunFactorial();
+
 // DoSomething();
 // RunFibImperative();
-RunFibFunctional();
+// RunFibFunctional();
 
 /// define a local static function
 static void DoSomething()
