@@ -23,15 +23,7 @@ builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 IConfigurationRoot configuration = builder.Build();
 
 TraceSwitch ts = new(displayName: "PacktSwitch", description: "This switch is set via a JSON config.");
-try
-{
-	configuration.GetSection("PacktSwitch").Bind(ts);
-}
-catch (Exception ex)
-{
-	var a = ex.Message;
-	throw;
-}
+configuration.GetSection("PacktSwitch").Bind(ts);
 
 Trace.WriteLineIf(ts.TraceError, "Trace error");
 Trace.WriteLineIf(ts.TraceWarning, "Trace warning");
