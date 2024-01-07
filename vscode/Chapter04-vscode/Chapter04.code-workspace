@@ -13,7 +13,16 @@
 			"path": "Instrumenting"
 		},
 		{
+			"path": "CalculatorLibUnitTests"
+		},
+		{
 			"path": "CalculatorLib"
+		},
+		{
+			"path": "CallStackExceptionHandlingLib"
 		}
-	]
+	],
+	"settings": {
+		"dotnet.defaultSolution": "WritingFunctions/WritingFunctions.sln"
+	}
 }
