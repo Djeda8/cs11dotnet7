@@ -17,6 +17,7 @@ namespace CalculatorLibUnitTests
             // assert
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void TestAdding2And3()
         {

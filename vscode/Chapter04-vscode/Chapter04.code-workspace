@@ -20,6 +20,18 @@
 		},
 		{
 			"path": "CallStackExceptionHandlingLib"
+		},
+		{
+			"path": "CallStackExceptionHandling"
+		},
+		{
+			"path": "Ch04Ex02PrimeFactorsLib"
+		},
+		{
+			"path": "Ch04Ex02PrimeFactorsTests"
+		},
+		{
+			"path": "Ch04Ex02PrimeFactorsApp"
 		}
 	],
 	"settings": {
