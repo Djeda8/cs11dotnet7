@@ -8,6 +8,15 @@
 		},
 		{
 			"path": "NullHandling"
+		},
+		{
+			"path": "WarningsAsErrors"
+		},
+		{
+			"path": "CodeAnalyzing"
+		},
+		{
+			"path": "Ch06Ex02Inheritance"
 		}
 	]
 }

@@ -1,4 +1,6 @@
-﻿namespace Packt.Shared;
+﻿using System.Threading;
+
+namespace Packt.Shared;
 public class Person : object, IComparable<Person?>
 {
     // properties
@@ -8,6 +10,12 @@ public class Person : object, IComparable<Person?>
     public void WriteToConsole()
     {
         WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
+    }
+
+    // overridden methods
+    public override string ToString()
+    {
+        return $"{Name} is a {base.ToString()}";
     }
 
     // delegate field
@@ -66,5 +74,16 @@ public class Person : object, IComparable<Person?>
             position = 0; // this Person and other Person are at same position
         }
         return position;
+    }
+    public void TimeTravel(DateTime when)
+    {
+        if (when <= DateOfBirth)
+        {
+            throw new PersonException("If you travel back in time to a date earlier than your own birth, then the universe will explode!");
+        }
+        else
+        {
+            WriteLine($"Welcome to {when:yyyy}!");
+        }
     }
 }
