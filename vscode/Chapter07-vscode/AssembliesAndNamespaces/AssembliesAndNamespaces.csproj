@@ -9,7 +9,10 @@
   <ItemGroup>
     <Using Include="System.Console" Static="true" />
   </ItemGroup>
-
+<ItemGroup>
+  <PackageReference Include="newtonsoft.json" Version="13.0.1" />
+  <PackageReference Include="packt.csdotnet.sharedlibrary" Version="7.0.0" />
+</ItemGroup>
   <ItemGroup>
      <Using Remove="System" />
   </ItemGroup>
