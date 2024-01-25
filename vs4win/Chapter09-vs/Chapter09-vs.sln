@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithFileSystems", "WorkingWithFileSystems\WorkingWithFileSystems.csproj", "{021C691A-534F-47BC-A074-FC3B67A458A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithStreams", "WorkingWithStreams\WorkingWithStreams.csproj", "{B74AE8DF-1A13-4EF1-8B11-AFB57E819DED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithTarArchives", "WorkingWithTarArchives\WorkingWithTarArchives.csproj", "{A4B720A1-BAD8-4F1F-BD31-6C6DA405ECEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEncodings", "WorkingWithEncodings\WorkingWithEncodings.csproj", "{7E334761-43B9-4AC1-A1BB-8870A9E00B38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithSerialization", "WorkingWithSerialization\WorkingWithSerialization.csproj", "{0637BC39-A0FC-41BD-BD09-8B1500B03389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithJson", "WorkingWithJson\WorkingWithJson.csproj", "{1E0D5A1D-6DA1-43B9-868D-EF936C8009C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch09Ex02SerializingShapes", "Ch09Ex02SerializingShapes\Ch09Ex02SerializingShapes.csproj", "{07CF0A2C-4088-4B92-B8AD-90D67DB161EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{021C691A-534F-47BC-A074-FC3B67A458A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021C691A-534F-47BC-A074-FC3B67A458A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021C691A-534F-47BC-A074-FC3B67A458A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021C691A-534F-47BC-A074-FC3B67A458A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74AE8DF-1A13-4EF1-8B11-AFB57E819DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74AE8DF-1A13-4EF1-8B11-AFB57E819DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74AE8DF-1A13-4EF1-8B11-AFB57E819DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74AE8DF-1A13-4EF1-8B11-AFB57E819DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B720A1-BAD8-4F1F-BD31-6C6DA405ECEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B720A1-BAD8-4F1F-BD31-6C6DA405ECEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B720A1-BAD8-4F1F-BD31-6C6DA405ECEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B720A1-BAD8-4F1F-BD31-6C6DA405ECEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E334761-43B9-4AC1-A1BB-8870A9E00B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E334761-43B9-4AC1-A1BB-8870A9E00B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E334761-43B9-4AC1-A1BB-8870A9E00B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E334761-43B9-4AC1-A1BB-8870A9E00B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0637BC39-A0FC-41BD-BD09-8B1500B03389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0637BC39-A0FC-41BD-BD09-8B1500B03389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0637BC39-A0FC-41BD-BD09-8B1500B03389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0637BC39-A0FC-41BD-BD09-8B1500B03389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0D5A1D-6DA1-43B9-868D-EF936C8009C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0D5A1D-6DA1-43B9-868D-EF936C8009C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0D5A1D-6DA1-43B9-868D-EF936C8009C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0D5A1D-6DA1-43B9-868D-EF936C8009C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07CF0A2C-4088-4B92-B8AD-90D67DB161EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07CF0A2C-4088-4B92-B8AD-90D67DB161EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07CF0A2C-4088-4B92-B8AD-90D67DB161EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07CF0A2C-4088-4B92-B8AD-90D67DB161EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EFA7C62-4699-4178-AB45-FCFC957D2221}
+	EndGlobalSection
+EndGlobal
