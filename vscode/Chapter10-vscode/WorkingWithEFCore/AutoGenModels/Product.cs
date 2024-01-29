@@ -14,34 +14,30 @@ namespace WorkingWithEFCore.AutoGen;
 public partial class Product
 {
     [Key]
-    public long ProductId { get; set; }
+    public int ProductId { get; set; }
 
-    [Column(TypeName = "nvarchar (40)")]
+    [Required]
+    [StringLength(40)]
     public string ProductName { get; set; } = null!;
 
-    [Column(TypeName = "INT")]
-    public long? SupplierId { get; set; }
+    public int? SupplierId { get; set; }
 
-    [Column(TypeName = "INT")]
-    public long? CategoryId { get; set; }
+    public int? CategoryId { get; set; }
 
-    [Column(TypeName = "nvarchar (20)")]
+    [StringLength(20)]
     public string? QuantityPerUnit { get; set; }
 
-    [Column(TypeName = "money")]
-    public decimal? UnitPrice { get; set; }
+    [Column("UnitPrice", TypeName = "money")]
+    public decimal? Cost { get; set; }
 
-    [Column(TypeName = "smallint")]
-    public long? UnitsInStock { get; set; }
+    [Column("UnitsInStock")]
+    public short? Stock { get; set; }
 
-    [Column(TypeName = "smallint")]
-    public long? UnitsOnOrder { get; set; }
+    public short? UnitsOnOrder { get; set; }
 
-    [Column(TypeName = "smallint")]
-    public long? ReorderLevel { get; set; }
+    public short? ReorderLevel { get; set; }
 
-    [Column(TypeName = "bit")]
-    public byte[] Discontinued { get; set; } = null!;
+    public bool Discontinued { get; set; }
 
     [ForeignKey("CategoryId")]
     [InverseProperty("Products")]

@@ -15,25 +15,34 @@ public partial class Northwind : DbContext
     {
     }
 
-    public virtual DbSet<Category>? Categories { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<Product>? Products { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlite("Data Source=Northwind.db");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.Property(e => e.CategoryId).ValueGeneratedNever();
+        });
+
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.Property(e => e.ReorderLevel).HasDefaultValue((short)0);
-            entity.Property(e => e.Cost).HasDefaultValue(0m);
-            entity.Property(e => e.Stock).HasDefaultValue((short)0);
-            entity.Property(e => e.UnitsOnOrder).HasDefaultValue((short)0);
-
-            entity.HasOne(d => d.Category).WithMany(p => p.Products).HasConstraintName("FK_Products_Categories");
+            entity.Property(e => e.ProductId).ValueGeneratedNever();
+            entity.Property(e => e.Discontinued).HasDefaultValueSql("0");
+            entity.Property(e => e.ReorderLevel).HasDefaultValueSql("0");
+            entity.Property(e => e.UnitPrice).HasDefaultValueSql("0");
+            entity.Property(e => e.UnitsInStock).HasDefaultValueSql("0");
+            entity.Property(e => e.UnitsOnOrder).HasDefaultValueSql("0");
         });
+
+        modelBuilder.Entity<Product>()
+        .Property(product => product.UnitPrice)
+        .HasConversion<double>();
 
         OnModelCreatingPartial(modelBuilder);
     }

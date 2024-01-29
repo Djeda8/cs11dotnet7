@@ -10,9 +10,9 @@ namespace WorkingWithEFCore.AutoGen;
 public partial class Category
 {
     [Key]
-    public long CategoryId { get; set; }
-
-    [Column(TypeName = "nvarchar (15)")]
+    public int CategoryId { get; set; }
+    [Required]
+    [StringLength(15)]
     public string CategoryName { get; set; } = null!;
 
     [Column(TypeName = "ntext")]
@@ -22,5 +22,5 @@ public partial class Category
     public byte[]? Picture { get; set; }
 
     [InverseProperty("Category")]
-    public virtual ICollection<Product> Products { get; } = new List<Product>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
