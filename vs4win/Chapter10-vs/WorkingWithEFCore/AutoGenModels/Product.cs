@@ -1,49 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace WorkingWithEFCore.AutoGen;
-
-[Index("CategoryId", Name = "CategoriesProducts")]
-[Index("CategoryId", Name = "CategoryId")]
-[Index("ProductName", Name = "ProductName")]
-[Index("SupplierId", Name = "SupplierId")]
-[Index("SupplierId", Name = "SuppliersProducts")]
-public partial class Product
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations; // [Required], [StringLength]
+using System.ComponentModel.DataAnnotations.Schema; // [Column]
+namespace Packt.Shared;
+public class Product
 {
     [Key]
-    public long ProductId { get; set; }
-
-    [Column(TypeName = "nvarchar (40)")]
+    public int ProductId { get; set; } // primary key
+    [Required]
+    [StringLength(40)]
     public string ProductName { get; set; } = null!;
-
-    [Column(TypeName = "INT")]
-    public long? SupplierId { get; set; }
-
-    [Column(TypeName = "INT")]
-    public long? CategoryId { get; set; }
-
-    [Column(TypeName = "nvarchar (20)")]
-    public string? QuantityPerUnit { get; set; }
-
-    [Column(TypeName = "money")]
-    public decimal? UnitPrice { get; set; }
-
-    [Column(TypeName = "smallint")]
-    public long? UnitsInStock { get; set; }
-
-    [Column(TypeName = "smallint")]
-    public long? UnitsOnOrder { get; set; }
-
-    [Column(TypeName = "smallint")]
-    public long? ReorderLevel { get; set; }
-
-    [Column(TypeName = "bit")]
-    public byte[] Discontinued { get; set; } = null!;
-
-    [ForeignKey("CategoryId")]
-    [InverseProperty("Products")]
-    public virtual Category? Category { get; set; }
+    [Column("UnitPrice", TypeName = "money")]
+    public decimal? Cost { get; set; } // property name != column name
+    [Column("UnitsInStock")]
+    public short? Stock { get; set; }
+    public bool Discontinued { get; set; }
+    // these two define the foreign key relationship
+    // to the Categories table
+    public int CategoryId { get; set; }
+    public virtual Category Category { get; set; } = null!;
 }

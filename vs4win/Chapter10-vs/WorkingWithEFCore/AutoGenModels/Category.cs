@@ -1,26 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace WorkingWithEFCore.AutoGen;
-
-[Index("CategoryName", Name = "CategoryName")]
-public partial class Category
+﻿using System.ComponentModel.DataAnnotations.Schema; // [Column]
+namespace Packt.Shared;
+public class Category
 {
-    [Key]
-    public long CategoryId { get; set; }
-
-    [Column(TypeName = "nvarchar (15)")]
-    public string CategoryName { get; set; } = null!;
-
+    // these properties map to columns in the database
+    public int CategoryId { get; set; }
+    public string? CategoryName { get; set; }
     [Column(TypeName = "ntext")]
     public string? Description { get; set; }
-
-    [Column(TypeName = "image")]
-    public byte[]? Picture { get; set; }
-
-    [InverseProperty("Category")]
-    public virtual ICollection<Product> Products { get; } = new List<Product>();
+    // defines a navigation property for related rows
+    public virtual ICollection<Product> Products { get; set; }
+    public Category()
+    {
+        // to enable developers to add products to a Category, we must
+        // initialize the navigation property to an empty collection
+        Products = new HashSet<Product>();
+    }
 }
