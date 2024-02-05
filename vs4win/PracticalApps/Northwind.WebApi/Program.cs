@@ -1,7 +1,9 @@
 // IOutputFormatter, OutputFormatter
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Packt.Shared; // AddNorthwindContext extension method
-
+using Northwind.WebApi.Repositories; // ICustomerRepository, CustomerRepository
+using Swashbuckle.AspNetCore.SwaggerUI; // SubmitMethod
+using Microsoft.AspNetCore.HttpLogging; // HttpLoggingFields
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,15 +35,33 @@ builder.Services.AddControllers(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddHttpLogging(options =>
+{
+    options.LoggingFields = HttpLoggingFields.All;
+    options.RequestBodyLogLimit = 4096; // default is 32k
+    options.ResponseBodyLogLimit = 4096; // default is 32k
+});
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseHttpLogging();
+
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json",
+        "Northwind Service API Version 1");
+        c.SupportedSubmitMethods(new[] {
+            SubmitMethod.Get, SubmitMethod.Post,
+            SubmitMethod.Put, SubmitMethod.Delete });
+    });
 }
+
 
 app.UseHttpsRedirection();
 

@@ -11,11 +11,15 @@ namespace Northwind.Mvc.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly NorthwindContext db;
-        public HomeController(ILogger<HomeController> logger, NorthwindContext injectedContext)
+        private readonly IHttpClientFactory clientFactory;
+
+        public HomeController(ILogger<HomeController> logger, NorthwindContext injectedContext, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             db = injectedContext;
+            clientFactory = httpClientFactory;
         }
+
         [ResponseCache(Duration = 10 /* seconds */, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Index()
         {
@@ -25,6 +29,22 @@ namespace Northwind.Mvc.Controllers
                 Categories: await db.Categories.ToListAsync(),
                 Products: await db.Products.ToListAsync()
             );
+
+            try
+            {
+                HttpClient client = clientFactory.CreateClient(name: "Minimal.WebApi");
+
+                HttpRequestMessage request = new(method: HttpMethod.Get, requestUri: "weatherforecast");
+
+                HttpResponseMessage response = await client.SendAsync(request);
+
+                ViewData["weather"] = await response.Content.ReadFromJsonAsync<WeatherForecast[]>();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"The Minimal.WebApi service is not responding. Exception: {ex.Message}");
+                ViewData["weather"] = Enumerable.Empty<WeatherForecast>().ToArray();
+            }
 
             return View(model);
         }
@@ -109,6 +129,28 @@ namespace Northwind.Mvc.Controllers
             }
 
             return View(model); // pass model to view and then return result
+        }
+
+        public async Task<IActionResult> Customers(string country)
+        {
+            string uri;
+            if (string.IsNullOrEmpty(country))
+            {
+                ViewData["Title"] = "All Customers Worldwide";
+                uri = "api/customers";
+            }
+            else
+            {
+                ViewData["Title"] = $"Customers in {country}";
+                uri = $"api/customers/?country={country}";
+            }
+
+            HttpClient client = clientFactory.CreateClient(name: "Northwind.WebApi");
+            HttpRequestMessage request = new(method: HttpMethod.Get, requestUri: uri);
+
+            HttpResponseMessage response = await client.SendAsync(request);
+            IEnumerable<Customer>? model = await response.Content.ReadFromJsonAsync<IEnumerable<Customer>>();
+            return View(model);
         }
     }
 }

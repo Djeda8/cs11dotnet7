@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity; // IdentityUser
 using Microsoft.EntityFrameworkCore; // UseSqlServer, UseSqlite
 using Northwind.Mvc.Data; // ApplicationDbContext
 using Packt.Shared; // AddNorthwindContext extension method
+using System.Net.Http.Headers; // MediaTypeWithQualityHeaderValue
 
 // Section 2 - configure the host web server including services
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,19 @@ builder.Services.AddOutputCache(options =>
 {
     options.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(20);
     options.AddPolicy("views", p => p.SetVaryByQuery("alertstyle"));
+});
+
+builder.Services.AddHttpClient(name: "Northwind.WebApi", configureClient: options =>
+{
+    options.BaseAddress = new Uri("https://localhost:5002/");
+    options.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType: "application/json", quality: 1.0));
+});
+
+builder.Services.AddHttpClient(name: "Minimal.WebApi",
+configureClient: options =>
+{
+    options.BaseAddress = new Uri("https://localhost:5003/");
+    options.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json", 1.0));
 });
 
 var app = builder.Build();
@@ -54,7 +68,7 @@ app.UseOutputCache();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}").CacheOutput("views");
+    pattern: "{controller=Home}/{action=Index}/{id?}");//.CacheOutput("views");
 app.MapRazorPages();
 
 app.MapGet("/notcached", () => DateTime.Now.ToString());
